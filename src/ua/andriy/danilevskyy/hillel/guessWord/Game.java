@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class Game {
     public void start(String[] wordList) {
-        String hiddenWord = wordList[new Random().nextInt(wordList.length)];
+        String hiddenWord = wordList[new Random().nextInt(wordList.length)].toLowerCase();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello, guess the hidden word");
 
         boolean isWordFound = false;
         String input;
         for (int i = 1; i <= hiddenWord.length(); i++) {
-            input = scanner.nextLine();
+            input = scanner.nextLine().toLowerCase();
             if (!input.equals(hiddenWord)) {
                 StringBuilder openedWord = new StringBuilder(hiddenWord).delete(i, hiddenWord.length());
                 if (i == hiddenWord.length()) {
