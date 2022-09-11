@@ -19,6 +19,7 @@ public class StringService {
             }
             return count;
         } else {
+            System.out.println("One or both args are null or incorrect.");
             return -1;
         }
     }
@@ -36,6 +37,7 @@ public class StringService {
         if (source != null && target != null) {
             return source.indexOf(target);
         } else {
+            System.out.println("One or both args are null.");
             return -1;
         }
     }
@@ -50,7 +52,7 @@ public class StringService {
         if (text != null) {
             return new StringBuilder(text).reverse().toString();
         } else {
-            System.out.println("The text was null.");
+            System.out.println("The argument is null.");
             return null;
         }
     }
@@ -66,6 +68,7 @@ public class StringService {
             String reversedValue = stringReverse(value);
             return value.equals(reversedValue);
         } else {
+            System.out.println("The argument is null");
             return null;
         }
     }
