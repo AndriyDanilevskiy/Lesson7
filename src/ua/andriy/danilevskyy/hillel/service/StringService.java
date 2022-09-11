@@ -9,14 +9,18 @@ public class StringService {
      * @return returns int value of specific characters containing in the text.
      */
     public int findSymbolOccurance(String text, char c) {
-        int count = 0;
-        char[] arr = text.toCharArray();
-        for (char item : arr) {
-            if (item == c) {
-                count++;
+        if (text != null && c != 0) {
+            int count = 0;
+            char[] arr = text.toCharArray();
+            for (char item : arr) {
+                if (item == c) {
+                    count++;
+                }
             }
+            return count;
+        } else {
+            return -1;
         }
-        return count;
     }
 
     /**
@@ -29,7 +33,11 @@ public class StringService {
      * target value is not found in the source.
      */
     public int findWordPosition(String source, String target) {
-        return source.indexOf(target);
+        if (source != null && target != null) {
+            return source.indexOf(target);
+        } else {
+            return -1;
+        }
     }
 
     /**
@@ -39,7 +47,12 @@ public class StringService {
      * @return String reversed text
      */
     public String stringReverse(String text) {
-        return new StringBuilder(text).reverse().toString();
+        if (text != null) {
+            return new StringBuilder(text).reverse().toString();
+        } else {
+            System.out.println("The text was null.");
+            return null;
+        }
     }
 
     /**
@@ -48,17 +61,12 @@ public class StringService {
      * @param value is a String value
      * @return boolean if the String value is palindrome.
      */
-    public boolean isPalindrome(String value) {
-        String str = value.toLowerCase();
-        int i;
-        int j = str.length() - 1;
-        for (i = 0; i < j; ) {
-            if (str.charAt(i) != str.charAt(j)) {
-                return false;
-            }
-            i++;
-            j--;
+    public Boolean isPalindrome(String value) {
+        if (value != null) {
+            String reversedValue = stringReverse(value);
+            return value.equals(reversedValue);
+        } else {
+            return null;
         }
-        return true;
     }
 }
