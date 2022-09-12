@@ -9,7 +9,7 @@ public class StringService {
      * @return returns int value of specific characters containing in the text.
      */
     public int findSymbolOccurance(String text, char c) {
-        if (text != null && c != 0) {
+        if (text != null) {
             int count = 0;
             char[] arr = text.toCharArray();
             for (char item : arr) {
